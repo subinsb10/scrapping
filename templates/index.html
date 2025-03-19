@@ -3,8 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
-<body>
-   <h1>Welcome to Flask!</h1>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+
+    <div class="bg-white p-6 rounded-lg shadow-lg w-96">
+        <h2 class="text-xl font-bold mb-4 text-center">Web Scraper</h2>
+
+        <!-- File Upload Form -->
+        <form action="/upload" method="POST" enctype="multipart/form-data" class="mb-4">
+            <label class="block text-gray-700">Upload HTML File:</label>
+            <input type="file" name="file" class="mt-2 p-2 w-full border rounded-md">
+            <button type="submit" class="mt-3 w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600">Upload & Scrape</button>
+        </form>
+
+        <!-- URL Input Form -->
+        <form action="/scrape" method="POST">
+            <label class="block text-gray-700">Enter URL:</label>
+            <input type="text" name="url" placeholder="https://example.com" class="mt-2 p-2 w-full border rounded-md">
+            <button type="submit" class="mt-3 w-full bg-green-500 text-white py-2 rounded-md hover:bg-green-600">Scrape URL</button>
+        </form>
+    </div>
+
 </body>
 </html>
